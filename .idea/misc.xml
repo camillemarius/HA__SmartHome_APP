@@ -16,6 +16,13 @@
         <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/fragment_controll_rgb_led.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/fragment_controll_w_led.xml" value="0.2586575459598119" />
         <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/item_controll_menu.xml" value="0.5" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/v2SmartHome/SmartHome/app/src/main/res/drawable/bg_themes.xml" value="0.1965" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/v2SmartHome/SmartHome/app/src/main/res/layout/mode_settings.xml" value="0.335" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/v2SmartHome/SmartHome/app/src/main/res/layout/mode_settins.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/v2SmartHome/SmartHome/app/src/main/res/layout/mode_view.xml" value="0.25" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/v2SmartHome/SmartHome/app/src/main/res/layout/rv_controll_lamps.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/v2SmartHome/SmartHome/app/src/main/res/layout/rv_item_controll_menu.xml" value="0.3671875" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/v2SmartHome/SmartHome/app/src/main/res/layout/rv_item_scene.xml" value="0.25" />
         <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/bg_lamp_menu.xml" value="0.236" />
         <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/bg_lamp_menu_blue.xml" value="0.152" />
         <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/bg_lamp_menu_white.xml" value="0.124" />

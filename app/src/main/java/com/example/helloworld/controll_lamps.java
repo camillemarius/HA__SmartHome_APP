@@ -1,6 +1,7 @@
 package com.example.helloworld;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 
 public class controll_lamps extends AppCompatActivity implements RV_controll_menu_adapter.MenuListener {
     LinearLayout item_deckenlampe, item_w_led, item_dekolampe, item_rgb_led, item_lichterkette;
-    ImageView imageView_lampe;
+    ImageView imageView_back, imageView_add;
 
     RV_controll_items_adapter item_adapter;
     RV_controll_menu_adapter menu_adapter;
@@ -34,8 +35,17 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mode_settins);
+        setContentView(R.layout.mode_settings);
 
+        //----------------------------------------------------------------------------------------//
+        // Link UI
+        //----------------------------------------------------------------------------------------//
+        imageView_back = findViewById(R.id.imageView_back);
+        imageView_add = findViewById(R.id.imageView_add);
+
+        //----------------------------------------------------------------------------------------//
+        // Fill Item List
+        //----------------------------------------------------------------------------------------//
         ArrayList<RV_controll_menu_data> menu_list = new ArrayList<>();
         RV_controll_menu_data menu_item = new RV_controll_menu_data(
                 "Deckenlampe",ContextCompat.getDrawable(this,R.drawable.icon_lampe));
@@ -142,6 +152,15 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
         selectedFragment = new controll_dekolampe();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
         item_dekolampe.setBackgroundResource(R.drawable.bg_lamp_menu_blue);*/
+
+
+        imageView_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

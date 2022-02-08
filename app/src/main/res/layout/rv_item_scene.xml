@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_deckenlampe"
+    android:id="@+id/item_scene"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@drawable/bg_lamp_menu_white"
+    android:background="@drawable/bg_themes"
     android:orientation="vertical"
     android:padding="10dp"
     android:layout_marginBottom="5dp"
@@ -16,17 +16,15 @@
 
 
         <ImageView
+            android:id="@+id/imageView_scene_icon"
             android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:scaleX="1.2"
-            android:scaleY="1.2"
+            android:layout_height="match_parent"
             android:rotation="60"
             android:src="@drawable/rose"
-            app:layout_constraintBottom_toBottomOf="@+id/textView_scene_device_cnt"
-            app:layout_constraintStart_toStartOf="@+id/textView_scene_title"
-            app:layout_constraintTop_toTopOf="@+id/textView_scene_title" />
-        <TextView
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+          <TextView
             android:id="@+id/textView_scene_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,6 +45,6 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/textView_scene_title"
-            tools:layout_editor_absoluteX="-53dp" />
+            tools:layout_editor_absoluteX="10dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
