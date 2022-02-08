@@ -14,6 +14,11 @@ import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
+import com.example.helloworld.recycler_view.RV_controll_items_adapter;
+import com.example.helloworld.recycler_view.RV_controll_items_data;
+import com.example.helloworld.recycler_view.RV_controll_menu_adapter;
+import com.example.helloworld.recycler_view.RV_controll_menu_data;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements RV_controll_menu_adapter.MenuListener {
@@ -24,10 +29,11 @@ public class MainActivity extends AppCompatActivity implements RV_controll_menu_
     RV_controll_menu_adapter menu_adapter;
     LinearLayoutManager layoutManager_items;
     LinearLayoutManager layoutManager_menu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.mode_settins);
 
         ArrayList<RV_controll_menu_data> menu_list = new ArrayList<>();
         RV_controll_menu_data menu_item = new RV_controll_menu_data(
