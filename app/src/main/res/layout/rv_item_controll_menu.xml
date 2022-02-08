@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/item_deckenlampe"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/bg_lamp_menu_blue"
+    android:orientation="vertical"
+    android:padding="10dp"
+    app:layout_constraintDimensionRatio="H,1:1">
+
+        <ImageView
+            android:id="@+id/imageView_menu_icon"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            app:srcCompat="@drawable/icon_lampe" />
+
+        <TextView
+            android:id="@+id/textView_menu_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Deckelampe"
+            android:textSize="12sp" />
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/drawable/bg_lamp_menu_white.xml" value="0.2585" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/drawable/custom_seekbar.xml" value="0.318" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/drawable/custom_seekbar_thumb.xml" value="0.318" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/drawable/custom_switch.xml" value="0.317" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/drawable/custom_switch_thumb.xml" value="0.317" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/fragment_controll_deckenlampe.xml" value="0.4553227875160325" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/fragment_controll_dekolampe.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/fragment_controll_lamps.xml" value="0.25" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/fragment_controll_lichterkette.xml" value="0.2586575459598119" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/fragment_controll_rgb_led.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/fragment_controll_w_led.xml" value="0.2586575459598119" />
+        <entry key="..\:/Users/Camille/Documents/AndroidStudio_Apps/HelloWorld/app/src/main/res/layout/item_controll_menu.xml" value="0.5" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/bg_lamp_menu.xml" value="0.236" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/bg_lamp_menu_blue.xml" value="0.152" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/bg_lamp_menu_white.xml" value="0.124" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/custom_seekbar.xml" value="0.124" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/custom_seekbar_thumb.xml" value="0.2275" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/custom_switch.xml" value="0.2275" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/custom_switch_thumb.xml" value="0.2275" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.236" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.236" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/drawable/thumb.xml" value="0.124" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_controll_deckenlampe.xml" value="0.2" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_controll_dekolampe.xml" value="0.2" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_controll_lichterkette.xml" value="0.2" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_controll_rgb_led.xml" value="0.16" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_controll_w_led.xml" value="0.264" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_deckenlampe.xml" value="0.2" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_dekolampe.xml" value="0.264" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_lichterkette.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_rgb_strip.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/Zivi/AndroidStudioProjects/HelloWorld/app/src/main/res/layout/fragment_w_strip.xml" value="0.20863616930312098" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
