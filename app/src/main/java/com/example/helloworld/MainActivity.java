@@ -63,11 +63,32 @@ public class MainActivity extends AppCompatActivity implements RV_scene_adapter.
         //----------------------------------------------------------------------------------------//
         layoutManager_menu = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         RecyclerView recyclerView_menu = findViewById(R.id.recylerview_scenes);
+        // endless scroll
+        recyclerView_menu.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            private boolean loading = true;
+            int pastVisiblesItems, visibleItemCount, totalItemCount;
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0) { //check for scroll down
+                    visibleItemCount = layoutManager_menu.getChildCount();
+                    totalItemCount = layoutManager_menu.getItemCount();
+                    pastVisiblesItems = layoutManager_menu.findFirstVisibleItemPosition();
+
+                    if (loading) {
+                        if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                            loading = false;
+                            Log.v("...", "Last Item Wow !");
+                            // Do pagination.. i.e. fetch new data
+                            loading = true;
+                        }
+                    }
+                }
+            }
+        });
         recyclerView_menu.setLayoutManager(layoutManager_menu);
         scene_adapter = new RV_scene_adapter(this, scene_list);
         scene_adapter.setClickListener(this);
         recyclerView_menu.setAdapter(scene_adapter);
-
     }
 
     @Override
