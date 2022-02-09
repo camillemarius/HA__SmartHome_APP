@@ -8,25 +8,15 @@
     tools:context=".MainActivity"
     tools:ignore="MissingClass">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/view2"
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/circularImageview_profile_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="16dp"
-        android:innerRadius="0dp"
-        android:shape="ring"
-        app:cardCornerRadius="40dp"
+        android:src="@drawable/camille_profile"
+        app:civ_shadow_radius="10dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/camille_profile"></ImageView>
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
@@ -34,9 +24,9 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginRight="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintBottom_toBottomOf="@+id/circularImageview_profile_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/circularImageview_profile_image"
         app:srcCompat="@drawable/ic_baseline_add_24" />
 
     <!--<ImageView
@@ -58,8 +48,8 @@
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/view2" />
+        app:layout_constraintStart_toStartOf="@+id/circularImageview_profile_image"
+        app:layout_constraintTop_toBottomOf="@+id/circularImageview_profile_image" />
 
     <TextView
         android:id="@+id/textView2"
