@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements RV_scene_adapter.
         scene_list.add(scene_item);
 
         scene_item = new RV_scene_data(
-            "Sonnenuntergang","1 Gerät", ContextCompat.getDrawable(this,R.drawable.theme_sonnenuntergang));
+            "Sonnenuntergang","1 Gerät", ContextCompat.getDrawable(this,R.drawable.theme_chill_2));
         scene_list.add(scene_item);
 
         //----------------------------------------------------------------------------------------//
