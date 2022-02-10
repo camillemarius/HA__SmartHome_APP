@@ -1,6 +1,7 @@
 package com.example.helloworld.recycler_view;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +72,7 @@ public class RV_controll_menu_adapter extends RecyclerView.Adapter<RV_controll_m
             holder.item_deckenlampe.setBackgroundResource(R.drawable.bg_lamp_menu_blue);
         }
         else {
-            holder.item_deckenlampe.setBackgroundResource(R.drawable.bg_lamp_menu_white);
+            holder.item_deckenlampe.setBackgroundResource(0);
         }
         int paddingDp = 10;
         float density = context.getResources().getDisplayMetrics().density;

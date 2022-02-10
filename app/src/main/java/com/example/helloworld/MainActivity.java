@@ -39,23 +39,23 @@ public class MainActivity extends AppCompatActivity implements RV_scene_adapter.
 
         ArrayList<RV_scene_data> scene_list = new ArrayList<>();
         RV_scene_data scene_item = new RV_scene_data(
-            "Romantik","4 Geräte",ContextCompat.getDrawable(this,R.drawable.rose));
+            "Romantik","4 Geräte",ContextCompat.getDrawable(this,R.drawable.theme_chill_2));
         scene_list.add(scene_item);
 
         scene_item = new RV_scene_data(
-            "Hell","2 Geräte", ContextCompat.getDrawable(this,R.drawable.sun));
+            "Hell","2 Geräte", ContextCompat.getDrawable(this,R.drawable.theme_night_2));
         scene_list.add(scene_item);
 
         scene_item = new RV_scene_data(
-            "Produktiv","1 Geräte", ContextCompat.getDrawable(this,R.drawable.rose));
+            "Produktiv","1 Geräte", ContextCompat.getDrawable(this,R.drawable.theme_romantic_2));
         scene_list.add(scene_item);
 
         scene_item = new RV_scene_data(
-            "Nacht","2 Geräte", ContextCompat.getDrawable(this,R.drawable.mond));
+            "Nacht","2 Geräte", ContextCompat.getDrawable(this,R.drawable.theme_sonnenuntergang_2));
         scene_list.add(scene_item);
 
         scene_item = new RV_scene_data(
-            "Sonnenuntergang","1 Gerät", ContextCompat.getDrawable(this,R.drawable.mond));
+            "Sonnenuntergang","1 Gerät", ContextCompat.getDrawable(this,R.drawable.theme_sonnenuntergang));
         scene_list.add(scene_item);
 
         //----------------------------------------------------------------------------------------//

@@ -31,14 +31,14 @@ public class RV_scene_adapter extends RecyclerView.Adapter<RV_scene_adapter.View
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
         ConstraintLayout item_scene;
-        ImageView imageView_scene_icon;
+        ImageView imageView_scene_image;
         TextView textView_scene_title;
         TextView textView_scene_device_cnt;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             item_scene = itemView.findViewById(R.id.item_scene);
-            //imageView_scene_icon = itemView.findViewById(R.id.imageView_scene_icon);
+            imageView_scene_image = itemView.findViewById(R.id.imageView_scene_image);
             textView_scene_title = itemView.findViewById(R.id.textView_scene_title);
             textView_scene_device_cnt = itemView.findViewById(R.id.textView_scene_device_cnt);
         }
@@ -66,7 +66,7 @@ public class RV_scene_adapter extends RecyclerView.Adapter<RV_scene_adapter.View
 
         holder.textView_scene_title.setText(list_items.get(position).scene_title);
         holder.textView_scene_device_cnt.setText(list_items.get(position).scene_device_cnt);
-        //holder.imageView_scene_icon.setImageDrawable(list_items.get(position).drawable_icon);
+        holder.imageView_scene_image.setImageDrawable(list_items.get(position).drawable_icon);
     }
 
     @Override

@@ -49,6 +49,4 @@ dependencies {
     // round ImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.mikhaellopez:circularimageview:4.3.0'
-
-
 }
