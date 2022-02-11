@@ -24,13 +24,16 @@ import com.example.helloworld.recycler_view.RV_scene_data;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements RV_scene_adapter.SceneListener {
-    LinearLayout item_deckenlampe, item_w_led, item_dekolampe, item_rgb_led, item_lichterkette;
-    ImageView imageView_lampe;
 
-    RV_controll_items_adapter item_adapter;
+
     RV_scene_adapter scene_adapter;
-    LinearLayoutManager layoutManager_items;
     LinearLayoutManager layoutManager_menu;
+
+    String scene_1_title = "Romantik";
+    String scene_2_title = "Hell";
+    String scene_3_title = "Produktiv";
+    String scene_4_title = "Nacht";
+    String scene_5_title = "Sonnenuntergang";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +42,23 @@ public class MainActivity extends AppCompatActivity implements RV_scene_adapter.
 
         ArrayList<RV_scene_data> scene_list = new ArrayList<>();
         RV_scene_data scene_item = new RV_scene_data(
-            "Romantik","4 Geräte",ContextCompat.getDrawable(this,R.drawable.theme_chill_2));
+            scene_1_title,"4 Geräte",ContextCompat.getDrawable(this,R.drawable.theme_chill_2));
         scene_list.add(scene_item);
 
         scene_item = new RV_scene_data(
-            "Hell","2 Geräte", ContextCompat.getDrawable(this,R.drawable.theme_night_2));
+            scene_2_title,"2 Geräte", ContextCompat.getDrawable(this,R.drawable.theme_night_2));
         scene_list.add(scene_item);
 
         scene_item = new RV_scene_data(
-            "Produktiv","1 Geräte", ContextCompat.getDrawable(this,R.drawable.theme_romantic_2));
+            scene_3_title,"1 Geräte", ContextCompat.getDrawable(this,R.drawable.theme_romantic_2));
         scene_list.add(scene_item);
 
         scene_item = new RV_scene_data(
-            "Nacht","2 Geräte", ContextCompat.getDrawable(this,R.drawable.theme_sonnenuntergang_2));
+            scene_4_title,"2 Geräte", ContextCompat.getDrawable(this,R.drawable.theme_sonnenuntergang_2));
         scene_list.add(scene_item);
 
         scene_item = new RV_scene_data(
-            "Sonnenuntergang","1 Gerät", ContextCompat.getDrawable(this,R.drawable.theme_chill_2));
+            scene_5_title,"1 Gerät", ContextCompat.getDrawable(this,R.drawable.theme_chill_2));
         scene_list.add(scene_item);
 
         //----------------------------------------------------------------------------------------//
@@ -94,6 +97,27 @@ public class MainActivity extends AppCompatActivity implements RV_scene_adapter.
     @Override
     public void OnClickListener(View view, int position) {
         Intent intent = new Intent(this, controll_lamps.class);
+        switch(position) {
+            case 0:
+                intent.putExtra("EXTRA_THEME_TITLE", scene_1_title);
+                break;
+
+            case 1:
+                intent.putExtra("EXTRA_THEME_TITLE", scene_2_title);
+                break;
+
+            case 2:
+                intent.putExtra("EXTRA_THEME_TITLE", scene_3_title);
+                break;
+
+            case 3:
+                intent.putExtra("EXTRA_THEME_TITLE", scene_4_title);
+                break;
+
+            case 4:
+                intent.putExtra("EXTRA_THEME_TITLE", scene_5_title);
+                break;
+        }
         startActivity(intent);
     }
 }

@@ -31,7 +31,6 @@ public class RV_controll_menu_adapter extends RecyclerView.Adapter<RV_controll_m
         this.list_items = list_items;
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView textView_menu_title;
@@ -74,6 +73,7 @@ public class RV_controll_menu_adapter extends RecyclerView.Adapter<RV_controll_m
         else {
             holder.item_deckenlampe.setBackgroundResource(0);
         }
+
         int paddingDp = 10;
         float density = context.getResources().getDisplayMetrics().density;
         int paddingPixel = (int)(paddingDp * density);

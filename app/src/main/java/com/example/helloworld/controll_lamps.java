@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 public class controll_lamps extends AppCompatActivity implements RV_controll_menu_adapter.MenuListener {
     LinearLayout item_deckenlampe, item_w_led, item_dekolampe, item_rgb_led, item_lichterkette;
     ImageView imageView_back, imageView_add;
+    TextView textView_theme_title, textView_activ_devices;
 
     RV_controll_items_adapter item_adapter;
     RV_controll_menu_adapter menu_adapter;
@@ -37,11 +39,17 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mode_settings);
 
+        String theme_title  = getIntent().getStringExtra("EXTRA_THEME_TITLE");
+        textView_theme_title = findViewById(R.id.textView_theme_title);
+        textView_theme_title.setText(theme_title);
+
         //----------------------------------------------------------------------------------------//
         // Link UI
         //----------------------------------------------------------------------------------------//
         imageView_back = findViewById(R.id.imageView_back);
         imageView_add = findViewById(R.id.imageView_add);
+
+        textView_activ_devices = findViewById(R.id.textView_activ_devices);
 
         //----------------------------------------------------------------------------------------//
         // Fill Item List
@@ -131,13 +139,18 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 //int last_item = layoutManager_items.findFirstVisibleItemPosition();
-                if (dx > 0) {
-                    Log.d("Scrolling", "Scrolling UP");
+                 if (dx > 0) {
+                     Log.d("recylcerview:", "first: "+String.valueOf(layoutManager_items.findFirstVisibleItemPosition()));
+                     Log.d("recylcerview:", "last: "+String.valueOf(layoutManager_items.findLastVisibleItemPosition()));
+                     Log.d("recylcerview", "first completely: "+String.valueOf(layoutManager_items.findFirstCompletelyVisibleItemPosition()));
+                     Log.d("recylcerview", "last completely: "+String.valueOf(layoutManager_items.findLastCompletelyVisibleItemPosition()));
+                     Log.d("Scrolling", "Scrolling UP");
                     // Scrolling up
                 } else {
                     Log.d("Scrolling", "Scrolling DOWN");
                     // Scrolling down
                 }
+                 if(layoutManager_items.findFirstCompletelyVisibleItemPosition())!=-1)
             }
         });
         item_adapter = new RV_controll_items_adapter(this, items_list);
@@ -168,4 +181,11 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
         Log.d("OnScrolledListener", "OnScrolledListener: "+ position);
         layoutManager_items.scrollToPosition(position);
     }
+
+    void set_text_activ_devices() {
+        //textView_activ_devices.setText("");
+        //search in db for all on switches
+    }
+
+
 }
