@@ -48,7 +48,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView_main_title" />
 
                 <com.example.helloworld.custom_ui_elements.CustomSwitch
-                    android:id="@+id/switch_lampe_state"
+                    android:id="@+id/customSwitch_lampe_state"
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:minHeight="48dp"
@@ -92,7 +92,7 @@
                 android:textStyle="bold" />
 
             <com.example.helloworld.custom_ui_elements.CustomColorWheel
-                android:id="@+id/colorWheel"
+                android:id="@+id/customcolorWheel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/colorwheel"

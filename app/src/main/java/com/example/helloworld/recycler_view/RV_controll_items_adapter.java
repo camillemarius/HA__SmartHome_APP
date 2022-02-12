@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,6 +34,9 @@ public class RV_controll_items_adapter extends RecyclerView.Adapter<RV_controll_
         this.mInflater = LayoutInflater.from(context);
         this.list_items = list_items;
     }
+
+
+    private ItemListener itemListener;
 
 
 
@@ -57,7 +62,7 @@ public class RV_controll_items_adapter extends RecyclerView.Adapter<RV_controll_
             //------------------------------------------------------------------------------------//
             textView_main_title = itemView.findViewById(R.id.textView_main_title);
             textView_connectivity_title = itemView.findViewById(R.id.textView_connectivity_title);
-            switch_lampe_state = itemView.findViewById(R.id.switch_lampe_state);
+            switch_lampe_state = itemView.findViewById(R.id.customSwitch_lampe_state);
 
             //------------------------------------------------------------------------------------//
             title_brightness_title = itemView.findViewById(R.id.title_brightness_title);
@@ -65,7 +70,7 @@ public class RV_controll_items_adapter extends RecyclerView.Adapter<RV_controll_
 
             //------------------------------------------------------------------------------------//
             textView_title_colour = itemView.findViewById(R.id.textView_title_colour);
-            colorWheel = itemView.findViewById(R.id.colorWheel);
+            colorWheel = itemView.findViewById(R.id.customcolorWheel);
         }
     }
     @NonNull
@@ -84,6 +89,14 @@ public class RV_controll_items_adapter extends RecyclerView.Adapter<RV_controll_
         holder.textView_main_title.setText(list_items.get(position).main_title);
         holder.textView_connectivity_title.setText(list_items.get(position).connectivity_title);
         holder.switch_lampe_state.setChecked(list_items.get(position).lampe_state);
+        holder.switch_lampe_state.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean state) {
+                if (itemListener != null) {
+                    itemListener.onStateCheckedChanged(state, holder.getAdapterPosition());
+                }
+            }
+        });
 
 
         holder.title_brightness_title.setVisibility(list_items.get(position).brightness_visible);
@@ -95,6 +108,24 @@ public class RV_controll_items_adapter extends RecyclerView.Adapter<RV_controll_
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 view.getParent().requestDisallowInterceptTouchEvent(true);
                 return false;
+            }
+        });
+        holder.customSeekBar_brightness_level.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                if (itemListener != null) {
+                    itemListener.onProgressBarChangeListener(i, holder.getAdapterPosition());
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
 
@@ -123,6 +154,11 @@ public class RV_controll_items_adapter extends RecyclerView.Adapter<RV_controll_
                 int currPixel = image.getPixel(imageX, imageY);
 
                 Log.d("Coordinates", "(" + String.valueOf(Color.red(currPixel)) + ", " + String.valueOf(Color.blue(currPixel)) + ", " + String.valueOf(Color.green(currPixel)) + ") Pixel is: " + currPixel);
+
+                if (itemListener != null) {
+                    itemListener.OnColorWheelChanged(imageX, imageY, currPixel, holder.getAdapterPosition());
+                }
+                //notifyDataSetChanged();
 
                 return false;
             }
@@ -172,5 +208,16 @@ public class RV_controll_items_adapter extends RecyclerView.Adapter<RV_controll_
     @Override
     public int getItemCount() {
         return list_items.size();
+    }
+
+    // allows clicks events to be caught
+    public void setItemListener(ItemListener itemListener) {
+        this.itemListener = itemListener;
+    }
+
+    public interface ItemListener {
+        void OnColorWheelChanged(int x, int y, int color, int position);
+        void onStateCheckedChanged(Boolean state, int position);
+        void onProgressBarChangeListener(int progress, int position);
     }
 }

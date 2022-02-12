@@ -1,7 +1,6 @@
 package com.example.helloworld.recycler_view;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ public class RV_controll_menu_adapter extends RecyclerView.Adapter<RV_controll_m
     private LayoutInflater mInflater;
     private ArrayList<RV_controll_menu_data> list_items;
     private Context context;
-    private int shown_item_index = 0;
+    static public int shown_item_index = 0;
 
     private MenuListener menu_listener;
 
@@ -35,14 +34,14 @@ public class RV_controll_menu_adapter extends RecyclerView.Adapter<RV_controll_m
 
         TextView textView_menu_title;
         ImageView imageView_menu_icon;
-        LinearLayout item_deckenlampe;
+        LinearLayout item_menu;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             //------------------------------------------------------------------------------------//
             textView_menu_title = itemView.findViewById(R.id.textView_menu_title);
             imageView_menu_icon = itemView.findViewById(R.id.imageView_menu_icon);
-            item_deckenlampe = itemView.findViewById(R.id.item_deckenlampe);
+            item_menu = itemView.findViewById(R.id.item_menu);
         }
     }
     @NonNull
@@ -55,7 +54,7 @@ public class RV_controll_menu_adapter extends RecyclerView.Adapter<RV_controll_m
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.item_deckenlampe.setOnClickListener(new View.OnClickListener() {
+        holder.item_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 shown_item_index = holder.getAdapterPosition();
@@ -68,16 +67,16 @@ public class RV_controll_menu_adapter extends RecyclerView.Adapter<RV_controll_m
         });
 
         if(shown_item_index==position){
-            holder.item_deckenlampe.setBackgroundResource(R.drawable.bg_lamp_menu_blue);
+            holder.item_menu.setBackgroundResource(R.drawable.bg_lamp_menu_blue);
         }
         else {
-            holder.item_deckenlampe.setBackgroundResource(0);
+            holder.item_menu.setBackgroundResource(0);
         }
 
         int paddingDp = 10;
         float density = context.getResources().getDisplayMetrics().density;
         int paddingPixel = (int)(paddingDp * density);
-        holder.item_deckenlampe.setPaddingRelative(paddingPixel,paddingPixel,paddingPixel,paddingPixel);
+        holder.item_menu.setPaddingRelative(paddingPixel,paddingPixel,paddingPixel,paddingPixel);
 
 
         holder.textView_menu_title.setText(list_items.get(position).main_title);
