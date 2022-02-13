@@ -54,7 +54,7 @@
                     android:minHeight="48dp"
                     android:textStyle="bold"
                     android:thumb="@drawable/custom_switch_thumb"
-                    android:track="@drawable/custom_switch"
+                    android:track="@drawable/custom_switch_selector"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textView_main_title" />
@@ -77,7 +77,7 @@
                 android:layout_marginTop="5dp"
                 android:paddingStart="0dp"
                 android:paddingEnd="0dp"
-                android:progressDrawable="@drawable/custom_seekbar"
+                android:progressDrawable="@drawable/custom_seekbar_selector"
                 android:splitTrack="false"
                 android:thumb="@drawable/custom_seekbar_thumb" />
 

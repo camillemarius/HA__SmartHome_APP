@@ -46,24 +46,31 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
 
     DatabaseHandler db = null;
     ClassTheme classTheme = null;
+    String theme_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mode_settings);
 
-        db = new DatabaseHandler(getApplicationContext());
-        db.deleteAllEntries();
-        classTheme = new ClassTheme();
-        classTheme = db.restoreClass(1);
-        Log.d("DatabaseHandler", "Result after read: "+String.valueOf(classTheme.classTheme.get(1).brightness));
+        //----------------------------------------------------------------------------------------//
+        // Intents
+        //----------------------------------------------------------------------------------------//
+        theme_title  = getIntent().getStringExtra("EXTRA_THEME_TITLE");
 
+        //----------------------------------------------------------------------------------------//
+        // Databse
+        //----------------------------------------------------------------------------------------//
+        db = new DatabaseHandler(getApplicationContext());
+        //db.deleteAllEntries();
+        classTheme = new ClassTheme();
+        //classTheme = db.restoreClass(theme_title);    //EDIT
+        classTheme = db.restoreClass(db.getTableSize());    //EDIT
 
 
         //----------------------------------------------------------------------------------------//
         // Link UI
         //----------------------------------------------------------------------------------------//
-        String theme_title  = getIntent().getStringExtra("EXTRA_THEME_TITLE");
         textView_theme_title = findViewById(R.id.textView_theme_title);
         textView_theme_title.setText(theme_title);
 
@@ -116,37 +123,37 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
         ArrayList<RV_controll_items_data> items_list = new ArrayList<>();
         RV_controll_items_data items = new RV_controll_items_data(
                 ContextCompat.getDrawable(this, R.drawable.deckenlampe),
-                "Deckenlampe", "Verbunden", Boolean.FALSE,
-                View.GONE, "Helligkeit" ,20,
-                View.GONE,"Farbe", null);
+                "Deckenlampe", "Verbunden", classTheme.classTheme_List.get(0).switch_state,
+                View.GONE, "Helligkeit" ,classTheme.classTheme_List.get(0).brightness,
+                View.GONE,"Farbe", classTheme.classTheme_List.get(0).x,classTheme.classTheme_List.get(0).y,classTheme.classTheme_List.get(0).color);
         items_list.add(items);
 
         items = new RV_controll_items_data(
                 ContextCompat.getDrawable(this, R.drawable.diffusor),
-                "LED RGB", "Verbunden", Boolean.FALSE,
-                View.VISIBLE, "Helligkeit" ,80,
-                View.VISIBLE, "Farbe", null);
+                "LED RGB", "Verbunden", classTheme.classTheme_List.get(1).switch_state,
+                View.VISIBLE, "Helligkeit" ,classTheme.classTheme_List.get(1).brightness,
+                View.VISIBLE, "Farbe", classTheme.classTheme_List.get(1).x,classTheme.classTheme_List.get(1).y,classTheme.classTheme_List.get(1).color);
         items_list.add(items);
 
         items = new RV_controll_items_data(
                 ContextCompat.getDrawable(this, R.drawable.dekolampe),
-                "Dekolampe", "Verbunden", Boolean.FALSE,
-                View.VISIBLE, "Helligkeit" ,30,
-                View.GONE, "Farbe", null);
+                "Dekolampe", "Verbunden", classTheme.classTheme_List.get(2).switch_state,
+                View.VISIBLE, "Helligkeit" ,classTheme.classTheme_List.get(2).brightness,
+                View.GONE, "Farbe", classTheme.classTheme_List.get(2).x,classTheme.classTheme_List.get(2).y,classTheme.classTheme_List.get(2).color);
         items_list.add(items);
 
         items = new RV_controll_items_data(
                 ContextCompat.getDrawable(this, R.drawable.diffusor),
-                "LED Weiss", "Verbunden", Boolean.FALSE,
-                View.VISIBLE, "Helligkeit" ,100,
-                View.GONE, "Farbe", null);
+                "LED Weiss", "Verbunden", classTheme.classTheme_List.get(3).switch_state,
+                View.VISIBLE, "Helligkeit" ,classTheme.classTheme_List.get(3).brightness,
+                View.GONE, "Farbe", classTheme.classTheme_List.get(3).x,classTheme.classTheme_List.get(3).y,classTheme.classTheme_List.get(3).color);
         items_list.add(items);
 
         items = new RV_controll_items_data(
                 ContextCompat.getDrawable(this, R.drawable.rgbstrip),
-                "Lichterkette", "Verbunden", Boolean.TRUE,
-                View.GONE, "Helligkeit" ,50,
-                View.GONE, "Farbe", null);
+                "Lichterkette", "Verbunden", classTheme.classTheme_List.get(4).switch_state,
+                View.GONE, "Helligkeit" ,classTheme.classTheme_List.get(4).brightness,
+                View.GONE, "Farbe", classTheme.classTheme_List.get(4).x,classTheme.classTheme_List.get(4).y,classTheme.classTheme_List.get(4).color);
         items_list.add(items);
 
 
@@ -247,6 +254,6 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
     @Override
     protected void onPause() {
         super.onPause();
-        db.storeClass(classTheme);
+        db.storeClass(theme_title, classTheme);
     }
 }

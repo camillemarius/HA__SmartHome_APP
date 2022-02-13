@@ -10,4 +10,5 @@
     <color name="white_item_bg_bright">#F4F4F4</color>
     <color name="white_item_bg_dark">#E1DFDF</color>
     <color name="gray_subtitle_color">#808080</color>
+    <color name="blue_item_bg">#0568cd</color>
 </resources>

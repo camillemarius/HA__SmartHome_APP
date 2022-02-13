@@ -5,32 +5,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClassTheme  implements Serializable {
-    public static List<ClassLamp> classTheme = new ArrayList<ClassLamp>();
+    public static List<ClassLamp> classTheme_List = new ArrayList<ClassLamp>();
 
     public ClassTheme() {
 
         ClassLamp classLamp = new ClassLamp(false,0,0,0,0);
-        classTheme.add(classLamp);
-        classTheme.add(classLamp);
-        classTheme.add(classLamp);
-        classTheme.add(classLamp);
-        classTheme.add(classLamp);
+        classTheme_List.add(classLamp);
+        classTheme_List.add(classLamp);
+        classTheme_List.add(classLamp);
+        classTheme_List.add(classLamp);
+        classTheme_List.add(classLamp);
     }
     public void addClassTheme(ClassLamp data) {
-        classTheme.add(data);
+        classTheme_List.add(data);
     }
 
     public void addStateClassTheme(boolean state, int position) {
-        classTheme.get(position).switch_state = state;
+        classTheme_List.get(position).switch_state = state;
     }
 
     public void addProgressClassTheme(int brightness, int position) {
-        classTheme.get(position).brightness = brightness;
+        classTheme_List.get(position).brightness = brightness;
     }
 
     public void addColorwheelClassTheme(int x, int y, int color, int position) {
-        classTheme.get(position).color = color;
-        classTheme.get(position).x = x;
-        classTheme.get(position).y = y;
+        classTheme_List.get(position).color = color;
+        classTheme_List.get(position).x = x;
+        classTheme_List.get(position).y = y;
     }
 }
