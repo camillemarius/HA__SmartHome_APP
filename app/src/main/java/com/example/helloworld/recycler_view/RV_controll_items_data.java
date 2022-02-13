@@ -18,12 +18,13 @@ public class RV_controll_items_data {
 
     int colour_visible;
     String title_colour;
-    Color led_color;
+    int x,y;
+    int led_color;
 
     public RV_controll_items_data(Drawable drawable_image,
                                   String main_title, String connectivity_title, Boolean lampe_state,
                                   int brightness_visible, String brightness_title, Integer brightness_level,
-                                  int colour_visible, String title_colour, Color led_color) {
+                                  int colour_visible, String title_colour, int x, int y, int led_color) {
 
         this.drawable_image = drawable_image;
         this.main_title = main_title;
@@ -37,6 +38,8 @@ public class RV_controll_items_data {
 
         this.colour_visible = colour_visible;
         this.title_colour = title_colour;
+        this.x = x;
+        this.y = y;
         this.led_color = led_color;
 
     }

@@ -50,27 +50,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void storeClasstoDB(byte[] data) {
-
-        Log.d("DatabaseHandler", "storeClasstoDB gets called");
+    public void storeClass(String theme_title, ClassTheme modeldata) {
+        byte[] data = SerializationUtils.serialize(modeldata);
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_CLASS, data); // Contact Name
         Log.d("DatabaseHandler","Insertet Row: "+db.insert(TABLE_NAME, null, values));
         db.close(); // Closing database connection
-    }
-    public void storeClass(ClassTheme modeldata) {
-        byte[] data = SerializationUtils.serialize(modeldata);
-        Log.d("DatabaseHandler", "length of Serialization: "+ data.length);
-        //ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        //ObjectOutputStream oos = new ObjectOutputStream(baos);
-        //oos.writeObject(modeldata);
-        //oos.flush();
-        //byte[] employeeAsBytes = baos.toByteArray();
-        //ByteArrayInputStream bais = new ByteArrayInputStream(employeeAsBytes);
-        //return employeeAsBytes;
-        storeClasstoDB(data);
-        //return null;
     }
 
     public ClassTheme restoreClass(int position) {
@@ -102,6 +88,38 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Log.d("DatabaseHandler", "returned from Code");
         return classTheme;
     }
+
+    public ClassTheme restoreClass(String theme) {
+        //SQLiteDatabase db = this.getReadableDatabase();
+        //Cursor res =  db.rawQuery( "select * from contacts where id="+id+"", null );
+        //return res;
+        /*SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME, new String[] {
+                        KEY_ID, KEY_CLASS}, KEY_ID + "=?",
+                new String[] { String.valueOf(position) }, null, null, null, null);
+
+        ClassLamp elementData = new ClassLamp(Boolean.FALSE, 0, 0, 100,100);
+        ClassTheme classTheme = new ClassTheme();
+        classTheme.addClassTheme(elementData);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            if (cursor.getString(0) != null) {
+                Log.d("DatabaseHandler", "Databasehandler Description: " + cursor.getInt(0));
+            }
+
+            if (cursor.getBlob(1) != null) {
+                Log.d("DatabaseHandler", "returned from db");
+
+                return restoreClassFromDB(cursor.getBlob(1));
+            }
+        }
+        // return contact
+        Log.d("DatabaseHandler", "returned from Code");
+        return classTheme;*/
+        return null;
+    }
+
     public ClassTheme restoreClassFromDB(byte[] data) {
         try {
 
