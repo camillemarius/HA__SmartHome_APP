@@ -62,10 +62,10 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
         // Databse
         //----------------------------------------------------------------------------------------//
         db = new DatabaseHandler(getApplicationContext());
-        //db.deleteAllEntries();
-        classTheme = new ClassTheme();
+        db.deleteAllEntries();
+        classTheme = new ClassTheme(theme_title);
         //classTheme = db.restoreClass(theme_title);    //EDIT
-        classTheme = db.restoreClass(db.getTableSize());    //EDIT
+        //classTheme = db.restoreClass(theme_title);    //EDIT
 
 
         //----------------------------------------------------------------------------------------//
@@ -254,6 +254,6 @@ public class controll_lamps extends AppCompatActivity implements RV_controll_men
     @Override
     protected void onPause() {
         super.onPause();
-        db.storeClass(theme_title, classTheme);
+        db.storeClass(classTheme);
     }
 }

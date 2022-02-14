@@ -12,6 +12,8 @@ import org.apache.commons.lang3.SerializationUtils;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -21,6 +23,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_ID = "id";
     private static final String KEY_CLASS = "saveClass";
 
+
+    public static List<String> db_entry_index = new ArrayList<String>();
+    int db_entry_counter=0;
 
 
 
@@ -33,7 +38,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
-                + KEY_ID + " INTEGER PRIMARY KEY, "
+                + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_CLASS + " BLOB "
                 + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
@@ -50,27 +55,49 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void storeClass(String theme_title, ClassTheme modeldata) {
+    public void storeClass(ClassTheme modeldata) {
+        Log.d("DatabaseHandler", "Store Class for: "+modeldata.theme_title);
+        Log.d("DatabaseHandler", "Size of  db_entry_index: "+db_entry_index.size());
+
         byte[] data = SerializationUtils.serialize(modeldata);
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(KEY_CLASS, data); // Contact Name
-        Log.d("DatabaseHandler","Insertet Row: "+db.insert(TABLE_NAME, null, values));
+        values.put(KEY_CLASS, data);
+
+        if(!db_entry_index.contains(modeldata.theme_title)) {
+            Log.d("DatabaseHandler", "db_entry_index NOT CONTAINS theme_titel: ");
+            db_entry_index.add(modeldata.theme_title);
+            Log.d("DatabaseHandler","Inserted Row: "+db.insert(TABLE_NAME,null, values));
+
+        }
+        else {
+            Log.d("DatabaseHandler", "db_entry_index CONTAIN theme_titel: ");
+            int int_index = db_entry_index.indexOf(modeldata.theme_title)+1;
+            String index = String.valueOf( int_index);
+            Log.d("DatabaseHandler", "Index of Row to update: "+ index);
+            Log.d("DatabaseHandler","Inserted Row: "+ db.update(TABLE_NAME,values, KEY_ID + "=" + index, null));
+        }
+        Log.d("DatabaseHandler","");
+
+        //db.update(TABLE_NAME,values,KEY_ID + " =  '" +db_entry_index.indexOf(modeldata.theme_title) , null);
+        //Log.d("DatabaseHandler","Insertet Row: "+db.update(TABLE_NAME,values,KEY_ID + " =  '" +db_entry_index.indexOf(modeldata.theme_title) + "'" , null));
+        //Log.d("DatabaseHandler","Insertet Row: "+db.insert(TABLE_NAME, null, values));
         db.close(); // Closing database connection
     }
 
-    public ClassTheme restoreClass(int position) {
+    public ClassTheme restoreClass(String theme_title) {
         //SQLiteDatabase db = this.getReadableDatabase();
         //Cursor res =  db.rawQuery( "select * from contacts where id="+id+"", null );
         //return res;
+        Log.d("DatabaseHandler","Index of ArrayList for restore: "+db_entry_index.indexOf(theme_title));
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME, new String[] {
                         KEY_ID, KEY_CLASS}, KEY_ID + "=?",
-                new String[] { String.valueOf(position) }, null, null, null, null);
+                new String[] { String.valueOf(db_entry_index.indexOf(theme_title)) }, null, null, null, null);
 
         ClassLamp elementData = new ClassLamp(Boolean.FALSE, 0, 0, 100,100);
-        ClassTheme classTheme = new ClassTheme();
+        ClassTheme classTheme = new ClassTheme("Database Error");
         classTheme.addClassTheme(elementData);
 
         if (cursor != null && cursor.moveToFirst()) {
@@ -89,36 +116,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return classTheme;
     }
 
-    public ClassTheme restoreClass(String theme) {
-        //SQLiteDatabase db = this.getReadableDatabase();
-        //Cursor res =  db.rawQuery( "select * from contacts where id="+id+"", null );
-        //return res;
-        /*SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(TABLE_NAME, new String[] {
-                        KEY_ID, KEY_CLASS}, KEY_ID + "=?",
-                new String[] { String.valueOf(position) }, null, null, null, null);
-
-        ClassLamp elementData = new ClassLamp(Boolean.FALSE, 0, 0, 100,100);
-        ClassTheme classTheme = new ClassTheme();
-        classTheme.addClassTheme(elementData);
-
-        if (cursor != null && cursor.moveToFirst()) {
-            if (cursor.getString(0) != null) {
-                Log.d("DatabaseHandler", "Databasehandler Description: " + cursor.getInt(0));
-            }
-
-            if (cursor.getBlob(1) != null) {
-                Log.d("DatabaseHandler", "returned from db");
-
-                return restoreClassFromDB(cursor.getBlob(1));
-            }
-        }
-        // return contact
-        Log.d("DatabaseHandler", "returned from Code");
-        return classTheme;*/
-        return null;
-    }
 
     public ClassTheme restoreClassFromDB(byte[] data) {
         try {

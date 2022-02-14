@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClassTheme  implements Serializable {
+    public static String theme_title;
     public static List<ClassLamp> classTheme_List = new ArrayList<ClassLamp>();
 
-    public ClassTheme() {
+    public ClassTheme(String theme_title) {
+        this.theme_title = theme_title;
 
         ClassLamp classLamp = new ClassLamp(false,0,0,0,0);
         classTheme_List.add(classLamp);
